@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Gerador de SampleSheets</title>
+    <style type="text/css">
+      input{
+      display: block;
+      }
+      .alerta{
+      background-color: red;
+      }
+    </style>
+    <script src="resources/MFTRINI.js"></script>
+<!--    <link href="" rel=""> -->
+  </head>
+  <body>
+    <fieldset>
+      <legend>Experiment Data</legend>
+      <label>Operator:<input id='operator' type='text' placeholder='Nome do operador sem acentos' size='40'></input></label>
+      <label>Experiment Name:<input id='experiment' type='text'></input></label>
+      <label>Date:<input id='dataexame' type='text' disabled></input></label>      
+    </fieldset>
+    <script>
+      
+    </script>
+    <fieldset>
+      <legend>Batch 1</legend>
+      <table id='b1'>
+	<tr>
+	  <th>Sample ID</th>
+	  <th>Well</th>
+	  <th>Index</th>
+	  <th style='width:95px; align:center;'>Qubit Reading 1</th>
+	  <th style='width:95px; align:center;'>Qubit Reading 2</th>
+	  <th>ng/&mu;L</th>
+	  <th style='width:95px; align:center;'>Qubit nM</th>
+	  <th style='width:95px; align:center;'>EB to Plate</th>
+	</tr>
+	<tr id='b1l1'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size=2 value='A2' disabled></input></td>
+	  <td><input type='text' size=2 value='2' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l1")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l2'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='B2' disabled></input></td>
+	  <td><input type='text' size='2' value='5' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l2")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l3'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='C2' disabled></input></td>
+	  <td><input type='text' size='2' value='7' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l3")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l4'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='D2' disabled></input></td>
+	  <td><input type='text' size='2' value='12' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l4")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l5'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='E2' disabled></input></td>
+	  <td><input type='text' size='2' value='13' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l5")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l6'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='F2' disabled></input></td>
+	  <td><input type='text' size='2' value='14' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l6")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l7'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='G2' disabled></input></td>
+	  <td><input type='text' size='2' value='18' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l7")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l8'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='H2' disabled></input></td>
+	  <td><input type='text' size='2' value='19' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l8")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l9'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='A4' disabled></input></td>
+	  <td><input type='text' size='2' value='1' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l9")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l10'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='B4' disabled></input></td>
+	  <td><input type='text' size='2' value='3' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l10")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l11'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='C4' disabled></input></td>
+	  <td><input type='text' size='2' value='8' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3'  onblur='action("b1l11")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l12'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='D4' disabled></input></td>
+	  <td><input type='text' size='2' value='10' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l12")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l13'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='E4' disabled></input></td>
+	  <td><input type='text' size='2' value='20' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l13")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l14'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='F4' disabled></input></td>
+	  <td><input type='text' size='2' value='22' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l14")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l15'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='G4' disabled></input></td>
+	  <td><input type='text' size='2' value='25' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l15")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l6'>
+	  <td><input type='text' value='NTC'></input></td>
+	  <td><input type='text' size='2' value='H4' disabled></input></td>
+	  <td><input type='text' size='2' value='27' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l16")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <!-- molaridade menor que 10 -->
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b1l17'>
+	  <td>Pool Final</td>
+	  <td></td>
+	  <td></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b1l17")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td> 
+	  <!-- molaridade Pool Final entre 1,3 e 1,8 -->
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+      </table>
+      <button>Gerar</button>
+      <a id='downloadBatch1' style='display:none'>Download Batch 1</a>
+    </fieldset>    
+    <fieldset>
+      <legend>Batch 2</legend>
+      <table id='b2'>
+	<tr>
+	  <th>Sample ID</th>
+	  <th>Well</th>
+	  <th>Index</th>
+	  <th style='width:95px; align:center;'>Qubit Reading 1</th>
+	  <th style='width:95px; align:center;'>Qubit Reading 2</th>
+	  <th>ng/&mu;L</th>
+	  <th style='width:95px; align:center;'>Qubit nM</th>
+	  <th style='width:95px; align:center;'>EB to Plate</th>
+	</tr>
+	<tr id='b2l1'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='A6' disabled></input></td>
+	  <td><input type='text' size='2' value='2' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l1")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l2'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='B6' disabled></input></td>
+	  <td><input type='text' size='2' value='5' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l2")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l3'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='C6' disabled></input></td>
+	  <td><input type='text' size='2' value='7' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l3")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l4'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='D6' disabled></input></td>
+	  <td><input type='text' size='2' value='12' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l4")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l5'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='E6' disabled></input></td>
+	  <td><input type='text' size='2' value='13' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l5")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l6'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='F6' disabled></input></td>
+	  <td><input type='text' size='2' value='14' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l6")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l7'>
+	  <td><input type='text'</input></td>
+	  <td><input type='text' size='2' value='G6' disabled></input></td>
+	  <td><input type='text' size='2' value='18' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l7")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l8'>
+	  <td><input type='text'</input></td>
+	  <td><input type='text' size='2' value='H6' disabled></input></td>
+	  <td><input type='text' size='2' value='19' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l8")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l9'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='A8' disabled></input></td>
+	  <td><input type='text' size='2' value='1' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l9")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l10'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='B8' disabled></input></td>
+	  <td><input type='text' size='2' value='3' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l10")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l11'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='C8' disabled></input></td>
+	  <td><input type='text' size='2' value='8' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l11")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l12'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='D8' disabled></input></td>
+	  <td><input type='text' size='2' value='10' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l12")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l13'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='E8' disabled></input></td>
+	  <td><input type='text' size='2' value='20' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l13")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l14'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='F8' disabled></input></td>
+	  <td><input type='text' size='2' value='22' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l14")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l15'>
+	  <td><input type='text'></input></td>
+	  <td><input type='text' size='2' value='G8' disabled></input></td>
+	  <td><input type='text' size='2' value='25' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l15")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l16'>
+	  <td><input type='text' value='NTC'></input></td>
+	  <td><input type='text' size='2' value='H8' disabled></input></td>
+	  <td><input type='text' size='2' value='27' disabled></input></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l16")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+	<tr id='b2l17'>
+	  <td>Pool Final</td>
+	  <td></td>
+	  <td></td>
+	  <td><input type='text' size='3'></input></td>
+	  <td><input type='text' size='3' onblur='action("b2l17")'></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	  <td><input type='text' size='3' disabled></input></td>
+	</tr>
+      </table>
+      <button>Gerar</button>
+      <a id='downloadBatch2' style='display:none'>Download Batch 2</a>
+    </fieldset>
+    <script>
+      init();
+    </script>
+  </body>
+</html>

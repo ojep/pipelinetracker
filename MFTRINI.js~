@@ -1,0 +1,8 @@
+(
+conc = function(linha){
+l = document.getElementById(linha);
+r1 = Number.parseInt(l.children[3].childNodes.item(0).value);
+r2 = Number.parseInt(l.children[4].childNodes.item(0).value);
+l.children[5].childNodes.item(0).value = (((r1+r2)/2)*40)/1000;
+}
+)
