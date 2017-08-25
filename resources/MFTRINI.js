@@ -1,6 +1,7 @@
 // Nome:   MFTRINI.js
-// Versão: 0.1
-// 
+// Versão: 0.2
+// 0.1 - primeira versão funcional
+// 0.2 - desenhando as tabelas de formulário
 
 conc = function(linha){
     var l  = document.getElementById(linha);
@@ -37,13 +38,54 @@ pooling = function(linha){
 init = function(){
     var today = new Date();
     document.getElementById('dataexame').value = today.toLocaleDateString();
+    draw('fs1');
+//    draw('fs2');
 };
 
-draw = function(batch){
-    var gera1 = document.getElementById('btGera1');
+draw = function(fieldset){
+    var fs = document.getElementById(fieldset);
+    var table = document.createElement('table');
+    fs.appendChild(table);
+    for(var i=1; i <=17; i++){
+	var tr = table.insertRow();
+	var row_id = fieldset+'r'+i;
+	tr.id = row_id;
+	var headers = ['Sample ID', 'Well', 'Index', 'Qubit Reading 1', 'Qubit Reading 2', 'ng/&mu;L', 'Qubit nM', 'EB to Plate', 'Control'];
+	if(i==1){
+	    for(j=0; j<=8;j++){
+		var th = tr.appendChild(document.createElement('th'));
+		th.innerText = headers[j];
+	    }
+	}else if(i==17){
+	    var td = tr.insertCell();
+	    td.rowspan=9;
+	    td.innerText='Pool final';
+	}else{
+	    td = tr.insertCell();
+	    var inp = td.appendChild(document.createElement('input'));
+	    inp.id = 'sample_id_'+i;
+	    inp.className= 'sample';
+	    inp.type='text';
+	    td = tr.insertCell();
+	    inp=td.appendChild(document.createElement('input'));
+	    inp.id = 'well_'+i;
+	    inp.type = 'text';
+	    inp.className= 'well';
+	    td = tr.insertCell();
+	    inp=td.appendChild(document.createElement('input'));
+	    inp.type = 'text';
+	    td = tr.insertCell();
+	    inp=td.appendChild(document.createElement('input'));
+	    inp.type = 'text';
+	    td = tr.insertCell();
+	    inp=td.appendChild(document.createElement('input'));
+	    inp.type = 'text';
+	}	
+    }  
+/*    var gera1 = document.getElementById('btGera1');
     var gera2 = document.getElementById('btGera2');
     gera1.addEventListener('click', makeSampleSheet('b1'), false);
-    gera2.addEventListener('click', makeSampleSheet('b2'), false);
+    gera2.addEventListener('click', makeSampleSheet('b2'), false);*/
 }
 
 action = function(linha){
