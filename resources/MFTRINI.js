@@ -1,3 +1,7 @@
+// Nome:   MFTRINI.js
+// Versão: 0.1
+// 
+
 conc = function(linha){
     var l  = document.getElementById(linha);
     var r1 = Number.parseFloat(l.children[3].childNodes.item(0).value);
@@ -34,6 +38,13 @@ init = function(){
     var today = new Date();
     document.getElementById('dataexame').value = today.toLocaleDateString();
 };
+
+draw = function(batch){
+    var gera1 = document.getElementById('btGera1');
+    var gera2 = document.getElementById('btGera2');
+    gera1.addEventListener('click', makeSampleSheet('b1'), false);
+    gera2.addEventListener('click', makeSampleSheet('b2'), false);
+}
 
 action = function(linha){
     conc(linha);
@@ -74,7 +85,13 @@ makeSampleSheet = function (batch) {
      	    }
     	});
      	if(tds[0]=='') continue;
-     	text += tds[0]+','+tds[0]+',,'+tds[1] +',A'+('000'+tds[2]).slice(-3)+','+index[i-1]+',,,Test,'+tds[6]+'\n';
+     	text += tds[0]+','+tds[0]+',,'+tds[1] +',A'+('000'+tds[2]).slice(-3)+','+index[i-1];
+	if(i==14){
+	    teste +=',,,Test,';
+	}else{
+	    teste +=',,,Control,';
+	}
+	teste += tds[6]+'\n';
     }
     var link = document.getElementById('downloadBatch1');
     link.href = makeTextFile(text);
