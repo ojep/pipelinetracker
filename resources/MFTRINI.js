@@ -50,7 +50,7 @@ draw = function(fieldset){
 		var tr = table.insertRow();
 		var row_id = fieldset+'r'+i;
 		tr.id = row_id;
-		var headers = ['Sample ID', 'Well', 'Index', 'Qubit Reading 1', 'Qubit Reading 2', 'ng/&mu;L', 'Qubit nM', 'EB to Plate', 'Control'];
+		var headers = ['Sample ID', 'Well', 'Index', 'Qubit Reading 1', 'Qubit Reading 2', 'ng/'+String.fromCharCode(956)+'L', 'Qubit nM', 'EB to Plate', 'Control'];
 		if(i==1){
 			for(j=0; j<=8;j++){
 				var th = tr.appendChild(document.createElement('th'));
@@ -82,10 +82,13 @@ draw = function(fieldset){
 			inp.type = 'text';
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
-			inp.type = 'text';td = tr.insertCell();
+			inp.type = 'text';
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
 			inp.type = 'text';
+			td = tr.insertCell();
+			inp=td.appendChild(document.createElement('input'));
+			inp.type = 'text';			
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
 			inp.type = 'text';			
