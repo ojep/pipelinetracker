@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <title>Gerador de SampleSheets</title>
     <style type="text/css">
-      input{
-      display: block;
-      }
-      .alerta{
-      background-color: red;
-      }
-    </style>
+input {
+	display: block;
+}
+
+.alerta,
+input:invalid {
+ 	box-shadow: 0 0 5px 1px red;	
+}
+
+.alerta_ {
+	background-color: red;
+	color: white;
+	font-weight: bolder;
+}
+</style>
     <script src="resources/MFTRINI.js"></script>
 <!--    <link href="" rel=""> -->
   </head>
   <body>
     <fieldset id='header'>
       <legend>Experiment Data</legend>
-      <label>Operator:<input id='operator' type='text' placeholder='Nome do operador sem acentos' size='40'></input></label>
-      <label>Experiment Name:<input id='experiment' type='text'></input></label>
-      <label>Date:<input id='dataexame' type='text' disabled></input></label>      
+      <label>Operator:<input id='operator' type='text' placeholder='Nome do operador sem acentos' size='40' required></label>
+      <label>Experiment Name:<input id='experiment' type='text' required></label>
+      <label>Date:<input id='dataexame' type='text' disabled></label>      
     </fieldset>
     <script>
       

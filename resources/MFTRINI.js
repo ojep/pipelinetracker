@@ -4,59 +4,56 @@
 //0.2 - desenhando as tabelas de formulário
 
 conc = function(linha){
-	var l  = document.getElementById(linha);
-	var r1 = Number.parseFloat(l.children[3].childNodes.item(0).value);
-	var r2 = Number.parseFloat(l.children[4].childNodes.item(0).value);
-	l.children[5].childNodes.item(0).value = (((r1+r2)/2)*40)/1000;
+	var r1 = Number.parseFloat(document.getElementById('qr1_'+linha).value);
+	var r2 = Number.parseFloat(document.getElementById('qr2_'+linha).value);
+	var conc=document.getElementById('conc_'+linha);
+	conc.raw = (((r1+r2)/2)*40)/1000;
+	conc.value = Number.parseFloat(conc.raw).toFixed(2);
 	if(r1/r2<=0.85||r2/r1<=0.85){
-		l.children[5].classList.add('alerta');
+		conc.classList.add('alerta');
 	}else{
-		l.children[5].classList.remove('alerta');
+		conc.classList.remove('alerta');
 	}
 };
 molarity = function(linha){
-	var l = document.getElementById(linha);
-	var c = Number.parseFloat(l.children[5].childNodes.item(0).value);
-	var m = ((c/191.4)*1000);
-	l.children[6].childNodes.item(0).value = m;
+	var m = document.getElementById('molarity_'+linha);
+	m.raw = ((Number.parseFloat(document.getElementById('conc_'+linha).value)/191.4)*1000);
+	m.value = Number.parseFloat(m.raw).toFixed(1);
 
-	if(m<10||m>250){
-		l.children[6].classList.add('alerta');
+	if(m.value < 10||m.value >250){
+		m.classList.add('alerta');
 	}else{
-		l.children[6].classList.remove('alerta');
+		m.classList.remove('alerta');
 	}
 };
 pooling = function(linha){
-	l = document.getElementById(linha);
-	if(Number.parseFloat(l.children[6].childNodes.item(0).value)>=10){
-		l.children[7].childNodes.item(0).value = Number.parseFloat(l.children[6].childNodes.item(0).value)-10;
-		l.children[7].childNodes.item(0).classList.remove('alerta');
+	var m = document.getElementById('molarity_'+linha);
+	var p = document.getElementById('pooling_'+linha);
+	if(Number.parseFloat(m.value)>=10){
+		p.value = Number.parseFloat(m.value)-10;
+		p.classList.remove('alerta');
 	}else{
-		l.children[7].childNodes.item(0).classList.add('alerta');
+		p.classList.add('alerta');
 	}
-};
-init = function(){
-	var today = new Date();
-	document.getElementById('dataexame').value = today.toLocaleDateString();
-	draw('fs1');
-//	draw('fs2');
 };
 
 draw = function(fieldset){
 	var fs = document.getElementById(fieldset);
 	var table = document.createElement('table');
 	fs.appendChild(table);
-	for(var i=1; i <=17; i++){
+	for(var i=1; i <=18; i++){
 		var tr = table.insertRow();
 		var row_id = fieldset+'r'+i;
 		tr.id = row_id;
 		var headers = ['Sample ID', 'Well', 'Index', 'Qubit Reading 1', 'Qubit Reading 2', 'ng/'+String.fromCharCode(956)+'L', 'Qubit nM', 'EB to Plate', 'Control'];
+		var wells   = ['A2', 'B2', 'C2', 'D2', 'E2', 'F2', 'G2', 'H2', 'A4', 'B4', 'C4', 'D4', 'E4', 'F4', 'G4', 'H4'];
+		var index   = ['2', '5', '7', '12', '13', '14', '18', '19', '1', '3', '8', '10', '20', '22', '25', '27'];
 		if(i==1){
 			for(j=0; j<=8;j++){
 				var th = tr.appendChild(document.createElement('th'));
 				th.innerText = headers[j];
 			}
-		}else if(i==17){
+		}else if(i==18){
 			var td = tr.insertCell();
 			td.rowspan=9;
 			td.innerText='Pool final';
@@ -71,33 +68,57 @@ draw = function(fieldset){
 			inp.id = 'well_'+i;
 			inp.type = 'text';
 			inp.className= 'well';
+			inp.size = 2;
+			inp.value = wells[i-2];
+			inp.disabled = true;
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
 			inp.type = 'text';
+			inp.size= 2;
+			inp.disabled = true;
+			inp.className = 'index'
+			inp.value = index[i-2];
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
+			inp.id   = 'qr1_'+i;
 			inp.type = 'text';
+			inp.size = 4;
+			inp.className = 'qr1';
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
+			inp.id   = 'qr2_'+i;
 			inp.type = 'text';
+			inp.size = 4;
+			inp.className = 'qr2';
+			inp.linha = i;
+			inp.addEventListener('blur', function() {
+				action(this.linha);
+			}, false);
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
+			inp.id = 'conc_'+i;
 			inp.type = 'text';
+			inp.disabled = true;
+			inp.size = 2;
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
+			inp.id = 'molarity_'+i;
 			inp.type = 'text';
+			inp.disabled = true;
+			inp.size = 2;
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
-			inp.type = 'text';			
-			td = tr.insertCell();
-			inp=td.appendChild(document.createElement('input'));
-			inp.type = 'text';			
+			inp.id = 'pooling_'+i;
+			inp.type = 'text';
+			inp.disabled = true;
+			inp.size = 2;			
 			td = tr.insertCell();
 			inp=td.appendChild(document.createElement('input'));
 			inp.type = 'radio';
 			inp.name = 'control';
-			inp.value= 'control'+i;
-			inp.className='positive';	
+			inp.id= 'control_'+i;
+			inp.className='positive';
+			inp.required=true;
 		}	
 	}  
 	/*
@@ -108,14 +129,6 @@ draw = function(fieldset){
 	 */
 }
 
-action = function(linha){
-	conc(linha);
-	console.log('Concentração calculada');
-	molarity(linha);
-	console.log('Molaridade calculada');
-	pooling(linha);
-	console.log('Pooling calculado');
-}
 
 makeSampleSheet = function (batch) {
 	var textFile = null;
@@ -166,3 +179,18 @@ makeSampleSheet = function (batch) {
 	 */
 }
 
+init = function(){
+	var today = new Date();
+	document.getElementById('dataexame').value = today.toLocaleDateString();
+	draw('fs1');
+//	draw('fs2');
+};
+
+action = function(linha){
+	conc(linha);
+	console.log('Concentração calculada');
+	molarity(linha);
+	console.log('Molaridade calculada');
+	pooling(linha);
+	console.log('Pooling calculado');
+}
